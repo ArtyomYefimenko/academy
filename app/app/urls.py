@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from app.views import GroupView
+from app.views import GroupView, GroupDetailView
 from settings import DEBUG, MEDIA_ROOT
 
 
@@ -23,6 +23,7 @@ from settings import DEBUG, MEDIA_ROOT
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', GroupView.as_view(), name='home'),
+    url(r'^group_detail/(?P<pk>\d+)/$', GroupDetailView.as_view(), name='group_detail'),
 )
 
 

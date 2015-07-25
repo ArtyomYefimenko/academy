@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center text-info">
+                Группа {{ group.title }}
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+            {% for student in group.students.all %}
+			<div class="media well">
+				<a href="#" class="pull-left">
+                    {% thumbnail student.photo "120x120" crop='center' as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="media-object" />
+                    {% endthumbnail %}
+                </a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						{{ student.last_name }} {{ student.first_name }} {{ student.patronymic }}
+					</h4></br>
+                    <p>№ студ. билета: {{ student.students_ticket_number }}</p>
+                    <p>Дата рождения: {{ student.birth_day|date:"d.m.Y" }}</p>
+					<div class="media">
+						<div class="media-body">
+						</div>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+</div>
+
+
+{% comment %}<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center text-info">
+                {{ group.title }}
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+        {% for student in students %}
+		<div class="col-md-2">
+        {% thumbnail student.photo "180x120" crop='center' as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" />
+        {% endthumbnail %}
+		</div>
+		<div class="col-md-4">
+			<h5>
+                {{ student.first_name }} {{ student.last_name }}
+			</h5>
+			<p>
+                {{ student.first_name }}
+			</p>
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+        <div class="clearfix"></div>
+		</div>
+        {% endfor %}
+		<div class="col-md-6">
+		</div>
+	</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="media">
+                     <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/128/128/" class="media-object" /></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            Nested media heading
+                        </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                        <p>sds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>{% endcomment %}
+{% endblock %}

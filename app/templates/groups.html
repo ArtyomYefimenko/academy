@@ -3,7 +3,7 @@
 
 {% block content %}
 <h3 class="text-center text-info">Список групп</h3>
-			<table class="table table-striped">
+			<table class="table table-hover table-striped">
 				<thead>
 					<tr>
 						<th>№ п/п</th>
@@ -16,7 +16,7 @@
                     {% for group in groups %}
 					<tr>
 						<td>{{ forloop.counter }}</td>
-						<td>{{ group.title }}</td>
+						<td><a href="{{ group.get_absolute_url }}">{{ group.title }}</a></td>
 						<td>{{ group.students.count }}</td>
                         {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
 						<td>{{ group.steward }}</td>

@@ -22,6 +22,9 @@ class Student(models.Model):
         verbose_name = u'Студент'
         verbose_name_plural = u'Студенты'
 
+    def name(self):
+        return "{} {} {}".format(self.last_name, self.first_name, self.patronymic)
+
 
 class Group(models.Model):
     title = models.CharField(max_length=255, verbose_name=u'Название')
@@ -29,6 +32,9 @@ class Group(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return '/group_detail/%s/' % (self.pk)
 
     class Meta:
         ordering = ['title']

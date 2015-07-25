@@ -1,5 +1,6 @@
 app/media/images
 app/media/student_photo
+app/media/cache
 app/static
 app/.idea
 .env
