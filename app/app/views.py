@@ -3,6 +3,8 @@ __author__ = 'artem'
 
 from django.views.generic import ListView, DetailView
 from student.models import Group, Student
+from pure_pagination import PaginationMixin
+
 
 
 class GroupView(ListView):
@@ -11,12 +13,9 @@ class GroupView(ListView):
     template_name = "groups.html"
 
 
-class GroupDetailView(DetailView):
+class GroupDetailView(PaginationMixin, DetailView):
     model = Group
+    object = Group
+    paginate_by = 2
     template_name = "groups_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(GroupDetailView, self).get_context_data(**kwargs)
-        context['students'] = Student.objects.all()
-        return context
-
+    #context_object_name = 'counter'

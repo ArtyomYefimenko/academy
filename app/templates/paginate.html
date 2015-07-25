@@ -1,0 +1,31 @@
+
+<div class="pagination">
+    <div class="pages">
+        <span>Страницы:</span>
+        {% for page in page_obj.pages %}
+            {% if page %}
+                {% ifequal page page_obj.number %}
+                    <span class="current page">{{ page }}</span>
+                {% else %}
+                    <span><a href="?{{ page.querystring }}" class="page">{{ page }}</a></span>
+                {% endifequal %}
+            {% else %}
+                <span>...</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="controls">
+        {% if page_obj.has_previous %}
+            <span><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&larr;предыдущая</a></span>
+        {% else %}
+            <span>первая</span>
+        {% endif %}
+        &nbsp;|&nbsp;
+        {% if page_obj.has_next %}
+            <span><a href="?{{ page_obj.next_page_number.querystring }}" class="next">следующая &rarr;</a></span>
+        {% else %}
+            <span>последняя</span>
+        {% endif %}
+    </div>
+    <div class="cleared"></div>
+</div>

@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'fixture_media',
     'sorl.thumbnail',
+    'pure_pagination',
     'student',
 )
 
