@@ -1,0 +1,70 @@
+[
+  {
+    "model": "student.student",
+    "pk": 1,
+    "fields": {
+      "last_name": "Петров",
+      "first_name": "Евгений",
+      "patronymic": "Сергеевич",
+      "photo": "images/photo_1.jpg",
+      "birth_day": "1991-12-01",
+      "students_ticket_number": "1271518",
+      "in_group": 1
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 2,
+    "fields": {
+      "last_name": "Шевченко",
+      "first_name": "Маргарита",
+      "patronymic": "Борисовна",
+      "photo": "images/photo_2.jpg",
+      "birth_day": "1991-08-27",
+      "students_ticket_number": "1271521",
+      "in_group": 1
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 3,
+    "fields": {
+      "last_name": "Левицкий",
+      "first_name": "Константин",
+      "patronymic": "Алексеевич",
+      "photo": "images/photo_3.jpg",
+      "birth_day": "1990-12-19",
+      "students_ticket_number": "1271501",
+      "in_group": 2
+    }
+  },
+  {
+    "model": "student.student",
+    "pk": 4,
+    "fields": {
+      "last_name": "Нетименко",
+      "first_name": "Ирина",
+      "patronymic": "Константиновна",
+      "photo": "images/photo_4.jpg",
+      "birth_day": "1991-02-14",
+      "students_ticket_number": "1271509",
+      "in_group": 2
+    }
+  },
+  {
+    "model": "student.group",
+    "pk": 1,
+    "fields": {
+      "title": "ТМ-08-1",
+      "steward": 2
+    }
+  },
+  {
+    "model": "student.group",
+    "pk": 2,
+    "fields": {
+      "title": "МС-08-2",
+      "steward": 4
+    }
+  }
+]

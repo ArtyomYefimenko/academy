@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3 class="text-center text-info">Список групп</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>№ п/п</th>
+						<th>Название</th>
+						<th>Количество учащихся</th>
+						<th>Староста</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for group in groups %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td>{{ group.title }}</td>
+						<td>{{ group.students.count }}</td>
+                        {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
+						<td>{{ group.steward }}</td>
+					</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+{% endblock %}

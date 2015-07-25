@@ -1,0 +1,5 @@
+Django==1.8.3
+Pillow==2.9.0
+argparse==1.2.1
+django-fixture-media==0.1.4
+wsgiref==0.1.2
