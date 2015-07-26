@@ -12,7 +12,7 @@ class Student(models.Model):
     photo = models.ImageField(upload_to='student_photo', verbose_name=u'Фотография')
     birth_day = models.DateField(auto_now=False, verbose_name=u'Дата рождения')
     students_ticket_number = models.PositiveIntegerField(verbose_name=u'Номер студ. билета')
-    in_group = models.ForeignKey('Group', related_name='students', verbose_name=u'Группа')
+    in_group = models.ForeignKey('Group', related_name='r_students', verbose_name=u'Группа')
 
     def __unicode__(self):
         return u"%s %s %s" % (self.last_name, self.first_name, self.patronymic)
@@ -28,7 +28,7 @@ class Student(models.Model):
 
 class Group(models.Model):
     title = models.CharField(max_length=255, verbose_name=u'Название')
-    steward = models.ForeignKey('Student', null=True, blank=True, verbose_name=u'Староста группы')
+    steward = models.ForeignKey('Student', related_name='r_groups', null=True, blank=True, verbose_name=u'Староста группы')
 
     def __unicode__(self):
         return self.title

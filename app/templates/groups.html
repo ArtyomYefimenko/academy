@@ -17,7 +17,7 @@
 					<tr>
 						<td>{{ forloop.counter }}</td>
 						<td><a href="{{ group.get_absolute_url }}">{{ group.title }}</a></td>
-						<td>{{ group.students.count }}</td>
+						<td>{{ group.r_students.count }}</td>
                         {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
 						<td>{{ group.steward }}</td>
 					</tr>

@@ -12,7 +12,6 @@ class GroupView(ListView):
     context_object_name = 'groups'
     template_name = "groups.html"
 
-
 class GroupDetailView(PaginationMixin, DetailView):
     model = Group
     object = Group

@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-            {% for student in group.students.all %}
+            {% for student in group.r_students.all %}
 			<div class="media well">
 				<a href="#" class="pull-left">
                     {% thumbnail student.photo "120x120" crop='center' as im %}
