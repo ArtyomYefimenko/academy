@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-            {% for student in group.r_students.all %}
+            {% for student in object_list %}
 			<div class="media well">
 				<a href="#" class="pull-left">
                     {% thumbnail student.photo "120x120" crop='center' as im %}
@@ -33,7 +33,7 @@
 				</div>
 			</div>
             {% endfor %}
-            <div class="pagination">
+            {% comment %}<div class="pagination">
                 <div class="pages">
                     <span>Страницы:</span>
                     {% for page in page_obj.pages %}
@@ -62,7 +62,8 @@
                     {% endif %}
                 </div>
                 <div class="cleared"></div>
-            </div>
+            </div>{% endcomment %}
+            {% include "paginate.html" %}
 		</div>
 	</div>
 </div>

@@ -1,31 +1,31 @@
 
-<div class="pagination">
-    <div class="pages">
-        <span>Страницы:</span>
-        {% for page in page_obj.pages %}
-            {% if page %}
-                {% ifequal page page_obj.number %}
-                    <span class="current page">{{ page }}</span>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="pagination pager">
+                {% if page_obj.has_previous %}
+                    <li><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&larr;предыдущая</a></li>
                 {% else %}
-                    <span><a href="?{{ page.querystring }}" class="page">{{ page }}</a></span>
-                {% endifequal %}
-            {% else %}
-                <span>...</span>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <div class="controls">
-        {% if page_obj.has_previous %}
-            <span><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&larr;предыдущая</a></span>
-        {% else %}
-            <span>первая</span>
-        {% endif %}
-        &nbsp;|&nbsp;
-        {% if page_obj.has_next %}
-            <span><a href="?{{ page_obj.next_page_number.querystring }}" class="next">следующая &rarr;</a></span>
-        {% else %}
-            <span>последняя</span>
-        {% endif %}
-    </div>
-    <div class="cleared"></div>
+                    <li><a href="" class="current page">первая</a></li>
+                {% endif %}
+				{% for page in page_obj.pages %}
+                    {% if page %}
+                        {% ifequal page page_obj.number %}
+                            <li class="active"><a href="" class="current page">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li><a href="" class="page">...</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?{{ page_obj.next_page_number.querystring }}" class="next">следующая &rarr;</a></li>
+                {% else %}
+                    <li><a href="" class="page">последняя</a></li>
+                {% endif %}
+			</ul>
+		</div>
+	</div>
 </div>

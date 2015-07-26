@@ -116,3 +116,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     "staticfiles",
 )
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 5,
+    'MARGIN_PAGES_DISPLAYED': 2,
+}
