@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center text-info">
+				Информация о студенте
+			</h3>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="media well">
+                        {% thumbnail student.photo "240x320" crop='center' as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="pull-left"/>
+                        {% endthumbnail %}
+						<div class="media-body">
+							<div class="col-md-4">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    {% if student.r_groups.get %}
+                                        <h3 class="text-center">Староста группы</h3>
+                                    {% endif %}
+                                    </thead>
+                                    <tbody>
+                                        <tr class="success">
+                                            <td>Фамилия:</td>
+                                            <td>{{ student.last_name }}</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Имя:</td>
+                                            <td>{{ student.first_name }}
+                                            </td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Отчество:</td>
+                                            <td>{{ student.patronymic }}</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Дата рождения:</td>
+                                            <td>{{ student.birth_day|date:"d.m.Y" }}</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>№ студ. билета:</td>
+                                            <td>{{ student.students_ticket_number }}</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>Группа:</td>
+                                            <td><a href="{{ student.in_group.get_absolute_url }}">{{ student.in_group }}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+        <div class="col-md-4">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>
+                        <a href="/edit_student/{{ student.id }}"><button type="button" class="btn btn-success">Редактировать студента</button></a>
+                    </td>
+                    <td>
+                        <a href="/"><button type="button" class="btn btn-danger">Удалить студента</button></a>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

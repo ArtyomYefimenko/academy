@@ -13,7 +13,7 @@
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4">
-			<form role="form" method="post" id="contactform">{% csrf_token %}
+			<form role="form" method="post" enctype="multipart/form-data" id="contactform">{% csrf_token %}
 				{% for field in form %}
                     <div class="form-group">
                         {% if field.errors %}
@@ -27,7 +27,7 @@
                         {% endif %}
                     </div>
                 {% endfor %}
-				<p><input type="submit" value="Сохранить" class="btn btn-default" /></p>
+				<p><input type="submit" value="Сохранить" class="btn btn-primary" /></p>
 			</form>
 		</div>
 		<div class="col-md-4">

@@ -15,15 +15,19 @@ class Student(models.Model):
     in_group = models.ForeignKey('Group', related_name='r_students', verbose_name=u'Группа')
 
     def __unicode__(self):
-        return u"%s %s %s" % (self.last_name, self.first_name, self.patronymic)
+        return u"%s %s %s (группа %s)" % (self.last_name, self.first_name, self.patronymic, self.in_group)
+
+    def get_absolute_url(self):
+        return '/student_detail/%s/' % (self.pk)
+
+    def name(self):
+        return "{} {} {}".format(self.last_name, self.first_name, self.patronymic)
 
     class Meta:
         ordering = ['last_name', 'first_name']
         verbose_name = u'Студент'
         verbose_name_plural = u'Студенты'
 
-    def name(self):
-        return "{} {} {}".format(self.last_name, self.first_name, self.patronymic)
 
 
 class Group(models.Model):

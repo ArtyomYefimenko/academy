@@ -19,7 +19,7 @@
 						<td><a href="{{ group.get_absolute_url }}">{{ group.title }}</a></td>
 						<td>{{ group.r_students.count }}</td>
                         {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
-						<td>{{ group.steward }}</td>
+						<td><a href="{{ group.steward.get_absolute_url }}">{{ group.steward|default:"Староста не назначен"|truncatewords:3|cut:"." }}</a></td>
 					</tr>
                 {% endfor %}
 				</tbody>
