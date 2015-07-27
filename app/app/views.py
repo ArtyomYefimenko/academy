@@ -22,7 +22,7 @@ class GroupView(ListView):
 class GroupDetailView(PaginationMixin, ListView):
     model = Student
     object = Student
-    paginate_by = 3
+    paginate_by = 2
     template_name = "groups_detail.html"
 
     def get_queryset(self):
