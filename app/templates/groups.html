@@ -2,39 +2,40 @@
 
 
 {% block content %}
-<h3 class="text-center text-info">Список групп</h3>
-			<table class="table table-hover table-striped">
-				<thead>
-					<tr>
-						<th>№ п/п</th>
-						<th>Название</th>
-						<th>Количество учащихся</th>
-						<th>Староста</th>
-					</tr>
-				</thead>
-				<tbody>
-                    {% for group in groups %}
-					<tr>
-						<td>{{ forloop.counter }}</td>
-						<td><a href="{{ group.get_absolute_url }}">{{ group.title }}</a></td>
-						<td>{{ group.r_students.count }}</td>
-                        {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
-						<td><a href="{{ group.steward.get_absolute_url }}">{{ group.steward|default:"Староста не назначен"|truncatewords:3|cut:"." }}</a></td>
-					</tr>
-                {% endfor %}
-				</tbody>
-			</table>
-    <div class="clear"></div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-            <a href="/add_group/">
-			    <button type="button" class="btn btn-success">
-				    Добавить группу
-			    </button>
-            </a>
+            <h3 class="text-center text-info">Список групп</h3>
+            <div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>№ п/п</th>
+                                <th>Название</th>
+                                <th>Количество учащихся</th>
+                                <th>Староста</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for group in groups %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td><a href="{{ group.get_absolute_url }}">{{ group.title }}</a></td>
+                                <td>{{ group.r_students.count }}</td>
+                                {% comment %}Количество студентов в группе (через count и relared_name){% endcomment %}
+                                <td><a href="{{ group.steward.get_absolute_url }}">{{ group.steward|default:"Староста не назначен"|truncatewords:3|cut:"." }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+				<div class="col-md-1"></div>
+			</div>
 		</div>
 	</div>
 </div>
+<div class="clear"></div>
 {% endblock %}
 

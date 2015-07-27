@@ -22,14 +22,14 @@
 	<div class="row">
 		<div class="col-md-12">
             <ul class="nav nav-tabs">
-				<li class="active">
+				<li class="{% if is_group %}active{% endif %}">
 					<a href="/">Группы</a>
 				</li>
-				<li>
-					<a href="/add_student/">Добавить студента</a>
+                <li class="{% if is_add_group %}active{% endif %}">
+					<a href="/add_group/">Добавить группу</a>
 				</li>
-				<li>
-					<a href="#">Messages</a>
+				<li class="{% if is_add_student %}active{% endif %}">
+					<a href="/add_student/">Добавить студента</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>

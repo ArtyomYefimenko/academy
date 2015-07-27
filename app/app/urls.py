@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from app.views import GroupView, GroupDetailView, StudentDetailView, GroupAddView, StudentAddView, GroupEditView, StudentEditView
+from app.views import GroupView, GroupDetailView, StudentDetailView, GroupAddView, StudentAddView, GroupEditView, \
+    StudentEditView, GroupDeleteView, StudentDeleteView
 from settings import DEBUG, MEDIA_ROOT
 
 
@@ -32,6 +33,8 @@ urlpatterns = patterns('',
     url(r'^edit_group/(?P<pk>\d+)/$', GroupEditView.as_view(), name='edit_group'),
     url(r'^edit_student/(?P<pk>\d+)/$', StudentEditView.as_view(), name='edit_student'),
 
+    url(r'^delete_group/(?P<pk>\d+)/$', GroupDeleteView.as_view(), name='delete_group'),
+    url(r'^delete_student/(?P<pk>\d+)/$', StudentDeleteView.as_view(), name='delete_student'),
 )
 
 
