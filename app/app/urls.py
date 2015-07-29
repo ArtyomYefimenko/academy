@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from app.views import GroupView, GroupDetailView, StudentDetailView, GroupAddView, StudentAddView, GroupEditView, \
-    StudentEditView, GroupDeleteView, StudentDeleteView
+    StudentEditView, GroupDeleteView, StudentDeleteView, RegistrationView
 from settings import DEBUG, MEDIA_ROOT
+from django.contrib.auth.views import logout, login
 
 
 
@@ -35,6 +36,10 @@ urlpatterns = patterns('',
 
     url(r'^delete_group/(?P<pk>\d+)/$', GroupDeleteView.as_view(), name='delete_group'),
     url(r'^delete_student/(?P<pk>\d+)/$', StudentDeleteView.as_view(), name='delete_student'),
+
+    url(r'^accounts/login/$', login, name='login'),
+    url(r'^accounts/logout/$', logout, name='logout'),
+    url(r'^registration/$', RegistrationView.as_view(), name='registration'),
 )
 
 

@@ -1,5 +1,11 @@
 Django==1.8.3
 Pillow==2.9.0
 argparse==1.2.1
+django-appconf==1.0.1
 django-fixture-media==0.1.4
+django-pagination==1.0.7
+django-pure-pagination==0.2.1
+pilkit==1.1.12
+six==1.9.0
+sorl-thumbnail==12.3
 wsgiref==0.1.2
