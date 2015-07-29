@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'fixture_media',
     'sorl.thumbnail',
     'pure_pagination',
-    'student',
+     'student',
 )
 
 MIDDLEWARE_CLASSES = (
