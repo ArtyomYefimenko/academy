@@ -2,7 +2,7 @@
 __author__ = 'artem'
 
 from django.contrib import admin
-from student.models import Student, Group
+from student.models import Student, Group, Log
 
 
 class StudentInline(admin.TabularInline):
@@ -27,5 +27,12 @@ class GroupAdmin(admin.ModelAdmin):
     ]
 
 
+class LogAdmin(admin.ModelAdmin):
+    list_display = ('created_at', 'log', 'model')
+    search_fields = ('log',)
+    list_filter = ('created_at',)
+
+
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
+admin.site.register(Log, LogAdmin)

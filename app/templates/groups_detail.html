@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load my_tag %}
 {% block title %}{{ group.title }}{% endblock %}
 
 
@@ -80,6 +81,9 @@
                         </tr>
                     </thead>
                 </table>
+                {% if user.is_staff %}
+                    {% in_admin group 'Редактировать в админке' %}
+                {% endif %}
             </div>
 		</div>
 	</div>
