@@ -1,6 +1,6 @@
 # academy
 
-1. Установка:
+1 Установка:
 
 1) $ cd academy
 
@@ -16,7 +16,7 @@
 
 7) $ ./manage.py runserver
 
-2. Admin
+2 Admin
  
 Login: student
 
