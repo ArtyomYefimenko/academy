@@ -11,7 +11,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=255, verbose_name=u'Фамилия')
     first_name = models.CharField(max_length=255, verbose_name=u'Имя')
     patronymic = models.CharField(max_length=255, verbose_name=u'Отчество')
-    photo = models.ImageField(upload_to='student_photo', verbose_name=u'Фотография')
+    photo = models.ImageField(upload_to='student_photo',null=True, blank=True, verbose_name=u'Фотография')
     birth_day = models.DateField(auto_now=False, verbose_name=u'Дата рождения')
     students_ticket_number = models.PositiveIntegerField(verbose_name=u'Номер студ. билета')
     in_group = models.ForeignKey('Group', related_name='r_students', verbose_name=u'Группа')
