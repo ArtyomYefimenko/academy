@@ -2,8 +2,9 @@
 
 1. Установка
 
-$ cd academy
-$ virtualenv .env
+1) $ cd academy
+
+2) $ virtualenv .env
 $ source .env/bin/activate
 $ cd app
 $ pip install -r requirements.txt
