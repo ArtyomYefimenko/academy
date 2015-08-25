@@ -1,6 +1,6 @@
 # academy
 
-1 Установка:
+1 Installation:
 
 1) $ cd academy
 
